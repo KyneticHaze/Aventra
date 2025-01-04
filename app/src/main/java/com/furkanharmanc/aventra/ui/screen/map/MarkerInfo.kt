@@ -1,4 +1,4 @@
-package com.furkanharmanc.aventra.map
+package com.furkanharmanc.aventra.ui.screen.map
 
 import com.google.android.gms.maps.model.LatLng
 

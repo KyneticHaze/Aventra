@@ -1,4 +1,4 @@
-package com.furkanharmanc.aventra.map
+package com.furkanharmanc.aventra.ui.screen.map
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
