@@ -39,7 +39,6 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.furkanharmanc.aventra.data.TravelBook
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
@@ -194,8 +193,6 @@ fun ToolTip(travelBook: TravelBook, markerState: MarkerState, onEdit: (TravelBoo
     var showEditDialog by remember { mutableStateOf(false) }
     var editedTitle by remember { mutableStateOf(travelBook.title) }
     var editedSnippet by remember { mutableStateOf(travelBook.snippet) }
-
-    val density = LocalDensity.current
     var tooltipOffset by remember { mutableStateOf(IntOffset.Zero) }
 
     MapEffect(markerState.position) { map ->
@@ -317,10 +314,3 @@ fun ToolTip(travelBook: TravelBook, markerState: MarkerState, onEdit: (TravelBoo
     }
     }
 }
-
-
-private val MarkerState.screenPosition: Offset
-    get() = Offset(
-        x = position.latitude.toFloat(),
-        y = position.longitude.toFloat()
-    )
