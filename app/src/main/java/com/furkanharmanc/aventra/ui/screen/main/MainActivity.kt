@@ -1,4 +1,4 @@
-package com.furkanharmanc.aventra
+package com.furkanharmanc.aventra.ui.screen.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,10 +13,15 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.furkanharmanc.aventra.chat.ChatScreen
-import com.furkanharmanc.aventra.map.MapScreen
+import com.furkanharmanc.aventra.ui.screen.account.AccountScreen
+import com.furkanharmanc.aventra.ui.screen.chat.ChatScreen
+import com.furkanharmanc.aventra.ui.screen.map.MapScreen
+import com.furkanharmanc.aventra.ui.screen.settings.SettingsScreen
+import com.furkanharmanc.aventra.ui.screen.travelbook.TravelBookScreen
 import com.furkanharmanc.aventra.ui.theme.AventraTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,16 +36,25 @@ class MainActivity : ComponentActivity() {
                             .padding(innerPadding)
                             .background(MaterialTheme.colorScheme.background),
                         navController = navController,
-                        startDestination = Screen.Chat.name,
+                        startDestination = Screen.Main.name,
                     ) {
                         composable(route = Screen.Main.name) {
-                            MainScreen()
+                            MainScreen(navController = navController)
                         }
                         composable(route = Screen.Map.name) {
-                            MapScreen()
+                            MapScreen(navController = navController)
                         }
                         composable(Screen.Chat.name) {
-                            ChatScreen()
+                            ChatScreen(navController = navController)
+                        }
+                        composable(Screen.TravelBook.name) {
+                            TravelBookScreen(navController = navController)
+                        }
+                        composable(Screen.Settings.name) {
+                            SettingsScreen()
+                        }
+                        composable(Screen.Account.name) {
+                            AccountScreen()
                         }
                     }
                 }
@@ -54,5 +68,6 @@ enum class Screen {
     Map,
     Chat,
     TravelBook,
+    Settings,
     Account,
 }
