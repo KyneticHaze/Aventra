@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt.android)
 }
 
 android {
@@ -59,15 +61,30 @@ android {
 
 dependencies {
 
-    // Maps Sdk for Compose
     implementation(libs.maps.compose)
-    // Maps Sdk Ktx
+
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
+
     implementation(libs.maps.ktx)
 
     // Ai
     implementation(libs.generativeai)
 
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
+    ksp(libs.hilt.android.compiler)
+
+    // Accompanist Permissions
+    implementation (libs.accompanist.permissions)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

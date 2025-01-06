@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.LocationOn
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -40,7 +41,7 @@ fun MainScreen(
                         Icon(painter = painterResource(id = R.drawable.outline_chat_24), contentDescription = "Ai with Chat")
                     }
                     IconButton(onClick = { navController.navigate(Screen.TravelBook.name) }) {
-                        Icon(imageVector = Icons.Outlined.Favorite, contentDescription = "Favorite Place")
+                        Icon(imageVector = Icons.Outlined.FavoriteBorder, contentDescription = "Favorite Place")
                     }
                 }
     )
@@ -50,14 +51,6 @@ fun MainScreen(
             modifier = modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-        ) {
-            ElevatedCard(
-                onClick = {
-                    navController.navigate(Screen.Map.name)
-                }
-            ) {
-
-            }
-        }
+        ) {}
     }
 }

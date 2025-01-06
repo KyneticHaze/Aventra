@@ -19,7 +19,9 @@ import com.furkanharmanc.aventra.ui.screen.map.MapScreen
 import com.furkanharmanc.aventra.ui.screen.settings.SettingsScreen
 import com.furkanharmanc.aventra.ui.screen.travelbook.TravelBookScreen
 import com.furkanharmanc.aventra.ui.theme.AventraTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +48,7 @@ class MainActivity : ComponentActivity() {
                             ChatScreen(navController = navController)
                         }
                         composable(Screen.TravelBook.name) {
-                            TravelBookScreen()
+                            TravelBookScreen(navController = navController)
                         }
                         composable(Screen.Settings.name) {
                             SettingsScreen()
